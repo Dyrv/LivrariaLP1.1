@@ -6,12 +6,10 @@ class Repositor
     {
         Console.Clear();
         
-        // Variáveis para guardar informações do livro
         string titulo, autor, genero, escolha;
         int cod_livro, isbn, stock;
         double preco, iva;
         
-        // Solicitar informações sobre o livro
         Console.WriteLine("Qual é o nome do novo livro? \n");
         titulo = Console.ReadLine();
         Console.WriteLine("Qual é o autor do livro? \n");
@@ -90,23 +88,23 @@ class Repositor
             if (livroParaRemover != null)// Verifica se o livro foi encontrado
             {
                 Livro.livros.Remove(livroParaRemover);// Remove o livro da lista
-                Console.WriteLine("Livro removido com sucesso: " + livroParaRemover.Titulo);// Mensagem de sucesso, indicando o título do livro removido
+                Console.WriteLine("Livro removido com sucesso: " + livroParaRemover.Titulo);
             }
             else
             {
-                Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");// Mensagem indicando que o código fornecido não foi encontrado
+                Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
             }
         }
         else
         {
-            Console.WriteLine("Código inválido. Por favor, insira um código válido.");// Mensagem caso o código não seja um número inteiro válido
+            Console.WriteLine("Código inválido. Por favor, insira um código válido.");
         }
     }
     
     public static void ListarLivrosPorGenero()// Método para listar os livros pelo genero
     {
         Console.Clear();
-        Console.WriteLine("Digite o gênero que deseja listar:");// Solicita o gênero que deseja listar
+        Console.WriteLine("Digite o gênero que deseja listar:");
         string generoDesejado = Console.ReadLine();
         
         // Obter apenas livros do gênero desejado, ignorando maiúsculas e minúsculas
@@ -132,34 +130,34 @@ class Repositor
     }
     public static void AdicionarStock()// Método para adicionar stock a um livro
     {
-        Console.WriteLine("Digite o código do livro para adicionar stock: ");// Solicita o código do livro para o qual quer adicionar stock
+        Console.WriteLine("Digite o código do livro para adicionar stock: ");
         if (int.TryParse(Console.ReadLine(), out int codigoLivro))// Converter o código para um número inteiro
         {
             Livro livroParaAdicionarStock = Livro.livros.Find(livro => livro.Codigo == codigoLivro); // Procura na lista de livros um livro com o código fornecido
 
             if (livroParaAdicionarStock != null)// Verifica se o livro foi encontrado
             {
-                Console.WriteLine("Livro encontrado: " + livroParaAdicionarStock.Titulo);// Verifica se o livro foi encontrado
+                Console.WriteLine("Livro encontrado: " + livroParaAdicionarStock.Titulo);
                     
-                Console.WriteLine("Digite a quantidade de stock a ser adicionada: ");// Solicita a quantidade de stock a ser adicionado
+                Console.WriteLine("Digite a quantidade de stock a ser adicionada: ");
                 if (int.TryParse(Console.ReadLine(), out int quantidade))// Tenta converter a quantidade para um número inteiro
                 {
                     livroParaAdicionarStock.Stock += quantidade;// Adiciona a quantidade de stock ao livro
-                    Console.WriteLine("Stock adicionado com sucesso. Novo stock:  " + livroParaAdicionarStock.Stock); // Mensagem de sucesso
+                    Console.WriteLine("Stock adicionado com sucesso. Novo stock:  " + livroParaAdicionarStock.Stock); 
                 }
                 else
                 {
-                    Console.WriteLine("Código inválido. Por favor, insira um código válido.");// Mensagem caso a quantidade não seja um número inteiro válido
+                    Console.WriteLine("Código inválido. Por favor, insira um código válido.");
                 }
             }
             else
             {
-                Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");// Mensagem que o livro com o código fornecido não foi encontrado
+                Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
             }
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");// Mensagem caso o código do livro não seja um número inteiro válido
+            Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
         }
     }
 
@@ -171,7 +169,7 @@ class Repositor
         int cod;
         string escolha;
         
-        Console.WriteLine("Insira o código: ");// Solicita o código do livro
+        Console.WriteLine("Insira o código: ");
         escolha = Console.ReadLine();
         
         if (int.TryParse(escolha, out cod))// Tenta converter o codigo para um número inteiro
@@ -179,61 +177,98 @@ class Repositor
             Livro livroStock = Livro.livros.Find(livro => livro.Codigo == cod);// Procura na lista de livros um livro com o código fornecido
             if (livroStock != null)// Verifica se o livro foi encontrado
             {
-                Console.WriteLine("Há " + livroStock.Stock + " livros do " + livroStock.Titulo + " em stock");// Mensagem da quantidade de livros em stock para o livro encontrado
+                Console.WriteLine("Há " + livroStock.Stock + " livros do " + livroStock.Titulo + " em stock");
             }
             else
             {
-                Console.WriteLine("Livro não encontrado.");// Mensagem se o livro com o código fornecido não foi encontrado
+                Console.WriteLine("Livro não encontrado.");
             }
         }
         else
         {
-            Console.WriteLine("Código inválido!");// Mensagem caso o código do livro não seja um número inteiro válido
+            Console.WriteLine("Código inválido!");
         }
     }
 
-    public static void Atualizar_preco_livros()// Método para atualizar preço de um livro
+    public static void Atualizar_livro()// Método para atualizar preço de um livro
     {
         Console.Clear();
-        
-        // Variáveis para armazenar o código do livro
+        bool veri = true;
         int cod;
+        int iva;
         string escolha;
         
-        Console.WriteLine("Insira o código: ");// Solicitar o código do livro
+        Console.WriteLine("Insira o código: ");
         escolha = Console.ReadLine();
         if (int.TryParse(escolha, out cod))// Tenta converter o código para um número inteiro
         {
             Livro livroencontrado = Livro.livros.Find(livro => livro.Codigo == cod);// Procura na lista de livros um livro com o código fornecido
             if (livroencontrado != null)// Verifica se o livro foi encontrado
             {
-                Console.WriteLine("Qual preço deseja colocar: ");// Solicita um novo preço
+                Console.WriteLine("Qual preço deseja colocar: ");
                 escolha = Console.ReadLine();
                 if (int.TryParse(escolha, out int preco))// Tenta converter o preço para um número inteiro
                 {
                     livroencontrado.Preco = preco;// Atualiza o preço do livro
                     Console.WriteLine("Preço atualizado com sucesso!");
+                    Console.WriteLine("Deseja atualizar o IVA? (S/N)");//Perguntar se quer atualizar o IVA
+                    escolha = Console.ReadLine().ToUpper();
+                    if (escolha == "S")
+                    {
+                        do
+                        {
+                            Console.WriteLine("Qual IVA deseja colocar: (6%/23%)");
+                            escolha = Console.ReadLine();
+                            if (int.TryParse(escolha, out iva)) // Tenta converter o iva para um número inteiro
+                            {
+                                if (iva == 6)// Alterar o iva para 6%
+                                {
+                                    livroencontrado.IVA = 0.06;
+                                    Console.WriteLine("IVA alterado com sucesso!");
+                                    veri = false;
+                                }
+                                else if (iva == 23)// Alterar o iva para 23%
+                                {
+                                    livroencontrado.IVA = 0.23;
+                                    Console.WriteLine("IVA alterado com sucesso!");
+                                    veri = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Escolha um opção válida: ");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Escolha um opção válida: ");
+                            }
+                        } while (veri);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Escolha um opção válida!");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Preço inválido!");// Mensagem caso o novo preço não seja um número inteiro válido
+                    Console.WriteLine("Preço inválido!");
                 }
             }
             else
             {
-                Console.WriteLine("Livro não encontrado.");// Mensagem indicando que o livro com o código fornecido não foi encontrado
+                Console.WriteLine("Livro não encontrado.");
             }
         }
         else
         {
-            Console.WriteLine("Código inválido!");// Mensagem caso o código do livro não seja um número inteiro válido
+            Console.WriteLine("Código inválido!");
         }
     }
 
     public static void ListarLivrosPorAutor()// Método para listar os livros pelo autor
     {
         Console.Clear();
-        Console.WriteLine("Digite o autor que deseja procurar:");// Solicita o autor que deseja procurar
+        Console.WriteLine("Digite o autor que deseja procurar:");
         string autorDesejado = Console.ReadLine();
 
         // Filtra a lista de livros para obter apenas aqueles do autor desejado, ignorando maiúsculas e minúsculas
@@ -252,7 +287,6 @@ class Repositor
         }
         else
         {
-            // Mensagem informando que nenhum livro do autor foi encontrado
             Console.Clear();
             Console.WriteLine("Nenhum livro encontrado do autor " + autorDesejado + ".");
         }

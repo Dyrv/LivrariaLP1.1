@@ -149,7 +149,7 @@ public class Menu_interface// Classe da interface do menu
                                 Repositor.Verificar_Stock();//Chamar o método de mostrar o stock de um livro
                                 break;
                             case 9:
-                                Repositor.Atualizar_preco_livros();//Chamar o método de mudar o preço dos livros
+                                Repositor.Atualizar_livro();//Chamar o método de mudar o preço e IVA dos livros
                                 break;
                             case 10:// Opções para sair do programa ou fazer login(mesmo do case 'gerente')
                                 Console.Clear();

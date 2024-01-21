@@ -10,7 +10,7 @@ public class Caixa
     public static bool veri;
     
     
-    public static void venderLivro() //Funcao para vender livros
+    public static void venderLivro() //Método para vender livros
     {
         cont = 0;
         total = 0;
@@ -37,7 +37,7 @@ public class Caixa
                 }
                 if (codigoLivro != 0)
                 {
-                    Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);//Funcao que procura o livro pelo codigo na lista de livros
+                    Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);//Função que procura o livro pelo codigo na lista de livros
 
                     if (livroEncontrado != null)
                     {
@@ -88,13 +88,13 @@ public class Caixa
             }
         } while (veri);
 
-        if (cont > 0)
+        if (cont > 0) //Se for inserido algum livro
         {
-            if (total >= 50)
+            if (total >= 50) //verificar se o total é maior que 50€, se sim, vai fazer um desconto de 10%
             {
-                desconto = total * 0.1;
-                total = total - Math.Round(desconto, 2);
-                lucro += total;
+                desconto = total * 0.1; //calcular o desconto
+                total = total - Math.Round(desconto, 2);//aplicar o desconto
+                lucro += total;//acrecentar o total ao lucro 
                 Console.WriteLine("Venda concluida!");
                 Console.WriteLine("O desconto foi de " + Math.Round(desconto, 2));
                 Console.WriteLine("O valor do IVA foi de: " + Math.Round(total_iva, 2));

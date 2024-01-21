@@ -63,6 +63,7 @@ class Livro
             Console.WriteLine("IVA: " + livro.IVA);
             Console.WriteLine("Stock: " + livro.Stock);
         }
+        Console.ReadKey();
     }
     
     public static void ConsultarLivroPorCodigo()
