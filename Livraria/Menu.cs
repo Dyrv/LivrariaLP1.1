@@ -1,20 +1,22 @@
 ﻿namespace Livraria;
-public class Menu_interface
+public class Menu_interface// Classe da interface do menu
 {
-    public static Gerente ger_func = new Gerente();
-    public static void menu()
+    public static void menu()// Método para exibir o menu
     {
         Console.Clear();
+        // Inicializando variáveis
         bool sair = false;
         int opc, opc_sair;
         string escolha;
+        
         Console.WriteLine("Bem-vindo ao menu!");
         Console.WriteLine("------------------");
-        switch (Armazenamento.Cargo)
+        switch (Armazenamento.Cargo)// Verificar o cargo do usuário
         {
             case "Gerente":
                 do
                 {
+                    // Opções para o Gerente
                     Console.WriteLine("1. Adicionar funcionário");
                     Console.WriteLine("------------------------");
                     Console.WriteLine("2. Remover funcionário");
@@ -34,37 +36,39 @@ public class Menu_interface
                         switch (opc)
                         {
                             case 1:
-                                Gerente.add_funcionario();
+                                Gerente.add_funcionario(); //Chamar o método de adicionar funcionarios
                                 break;
                             case 2:
-                                Gerente.remove_funcionario();
+                                Gerente.remove_funcionario(); //Chamar o método de remover funcionarios
                                 break;
                             case 3:
                                 Console.Clear();
+                                //Mostrar todos os utilizadores
                                 foreach (var funcionario in Program.funcionarios)
                                 {
                                     Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
                                 }
                                 break;
                             case 4:
-                                Caixa.venderLivro();
+                                Caixa.venderLivro();//Chamar o método de vender
                                 break;
                             case 5:
-                                Gerente.ver_receita();
+                                Gerente.ver_receita();//Chamar o método de ver a receita
                                 break;
-                            case 6:
+                            case 6:// Opções para sair do programa ou fazer login
                                     Console.Clear();
-                                    Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");
+                                    Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");// Mensagem a perguntar se deseja sair o programa ou fazer login.
                                     escolha = Console.ReadLine();
-                                    if (int.TryParse(escolha, out opc_sair))
+                                    if (int.TryParse(escolha, out opc_sair))// Verifica se a escolha pode ser convertida para um número inteiro.
                                     {
                                         if (opc_sair == 1)
                                         {
+                                            // Se a escolha for 1, define a variável 'sair' como verdadeira e fecha o programa
                                             sair = true;
                                             Console.WriteLine("Saindo...");
                                         }
                                         else if (opc_sair == 2)
-                                        {
+                                        {// Se a escolha for 2, também define 'sair' como verdadeira e chama o método Main() novamente.
                                             sair = true;
                                             Program.Main();
                                         }
