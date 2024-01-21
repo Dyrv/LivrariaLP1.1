@@ -48,7 +48,7 @@ class Livro
         }
     };
 
-    public static void ListarLivro()
+    public static void ListarLivro()//Método que lista livros que estão na lista
     {
         Console.Clear();
         foreach (var livro in Livro.livros)
@@ -65,18 +65,18 @@ class Livro
         }
     }
     
-    public static void ConsultarLivroPorCodigo()
+    public static void ConsultarLivroPorCodigo()//Método que procura o livro pelo codigo
     {
         Console.Clear();
         int codigoLivro;
         string escolha;
         Console.WriteLine("Qual é o código do livro que procura?");
         escolha = Console.ReadLine();
-        if (int.TryParse(escolha, out codigoLivro))
+        if (int.TryParse(escolha, out codigoLivro))//Ira testar se a escolha e um inteiro 
         {
             Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);
 
-            if (livroEncontrado != null)
+            if (livroEncontrado != null)//Se o livro for encontrado imprime Livro encontrado e o Titulo
             {
                 Console.WriteLine("\nLivro encontrado: " + livroEncontrado.Titulo + "\n");
             }
