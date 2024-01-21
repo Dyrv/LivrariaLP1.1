@@ -48,6 +48,8 @@ public class Menu_interface// Classe da interface do menu
                                 {
                                     Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
                                 }
+                                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                Console.ReadKey();
                                 break;
                             case 4:
                                 Caixa.venderLivro();//Chamar o método de vender
@@ -65,7 +67,6 @@ public class Menu_interface// Classe da interface do menu
                                         {
                                             // Se a escolha for 1, define a variável 'sair' como verdadeira e fecha o programa
                                             sair = true;
-                                            Console.WriteLine("Saindo...");
                                         }
                                         else if (opc_sair == 2)
                                         {// Se a escolha for 2, também define 'sair' como verdadeira e volta para o método Main()
@@ -75,21 +76,29 @@ public class Menu_interface// Classe da interface do menu
                                         else
                                         {// Se a escolha não for 1 nem 2, mostra uma mensagem informando que a opção é inválida
                                             Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
+                                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                            Console.ReadKey();
                                         }
                                     }
                                     else
                                     {// Se a conversão não for bem-sucedida, exibe uma mensagem mostrando que a entrada é inválida
                                         Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+                                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                        Console.ReadKey();
                                     }
                                     break;
                             default:// Se a conversão não for bem-sucedida, exibe uma mensagem informando que a entrada é inválida.
                                 Console.WriteLine("Opção inválida. Escolha um número entre 1 e 6.");
+                                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                Console.ReadKey();
                                 break;
                         }
                     }
                     else
                     {
                         Console.WriteLine("Opção inválida. Escolha um número entre 1 e 6.");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     Console.Clear();
                 } while (!sair);
@@ -152,39 +161,47 @@ public class Menu_interface// Classe da interface do menu
                                 Repositor.Atualizar_livro();//Chamar o método de mudar o preço e IVA dos livros
                                 break;
                             case 10:// Opções para sair do programa ou fazer login(mesmo do case 'gerente')
-                                Console.Clear();
-                                Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");
-                                escolha = Console.ReadLine();
-                                if (int.TryParse(escolha, out opc_sair))
-                                {
-                                    if (opc_sair == 1)
+                               Console.Clear();
+                                    Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");// Mensagem a perguntar se deseja sair o programa ou fazer login.
+                                    escolha = Console.ReadLine();
+                                    if (int.TryParse(escolha, out opc_sair))// Verifica se a escolha pode ser convertida para um número inteiro.
                                     {
-                                        sair = true;
-                                        Console.WriteLine("Saindo...");
-                                    }
-                                    else if (opc_sair == 2)
-                                    {
-                                        sair = true;
-                                        Program.Main();
+                                        if (opc_sair == 1)
+                                        {
+                                            // Se a escolha for 1, define a variável 'sair' como verdadeira e fecha o programa
+                                            sair = true;
+                                        }
+                                        else if (opc_sair == 2)
+                                        {// Se a escolha for 2, também define 'sair' como verdadeira e volta para o método Main()
+                                            sair = true;
+                                            Program.Main();
+                                        }
+                                        else
+                                        {// Se a escolha não for 1 nem 2, mostra uma mensagem informando que a opção é inválida
+                                            Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
+                                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                            Console.ReadKey();
+                                        }
                                     }
                                     else
-                                    {
-                                        Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
+                                    {// Se a conversão não for bem-sucedida, exibe uma mensagem mostrando que a entrada é inválida
+                                        Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+                                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                        Console.ReadKey();
                                     }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
-                                }
-                                break;
-                            default:
+                                    break;
+                            default:// Se a conversão não for bem-sucedida, exibe uma mensagem informando que a entrada é inválida.
                                 Console.WriteLine("Opção inválida. Escolha um número entre 1 e 10.");
+                                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                Console.ReadKey();
                                 break;
                         }
                     }
                     else
                     {
                         Console.WriteLine("Opção inválida. Escolha um número entre 1 e 10.");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     Console.Clear();
                 } while (!sair);
@@ -207,38 +224,46 @@ public class Menu_interface// Classe da interface do menu
                                 break;
                             case 2:// Opções para sair do programa ou fazer login (mesmo do case 'Gerente')
                                 Console.Clear();
-                                Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");
-                                escolha = Console.ReadLine();
-                                if (int.TryParse(escolha, out opc_sair))
-                                {
-                                    if (opc_sair == 1)
+                                    Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");// Mensagem a perguntar se deseja sair o programa ou fazer login.
+                                    escolha = Console.ReadLine();
+                                    if (int.TryParse(escolha, out opc_sair))// Verifica se a escolha pode ser convertida para um número inteiro.
                                     {
-                                        sair = true;
-                                        Console.WriteLine("Saindo...");
-                                    }
-                                    else if (opc_sair == 2)
-                                    {
-                                        sair = true;
-                                        Program.Main();
+                                        if (opc_sair == 1)
+                                        {
+                                            // Se a escolha for 1, define a variável 'sair' como verdadeira e fecha o programa
+                                            sair = true;
+                                        }
+                                        else if (opc_sair == 2)
+                                        {// Se a escolha for 2, também define 'sair' como verdadeira e volta para o método Main()
+                                            sair = true;
+                                            Program.Main();
+                                        }
+                                        else
+                                        {// Se a escolha não for 1 nem 2, mostra uma mensagem informando que a opção é inválida
+                                            Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
+                                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                            Console.ReadKey();
+                                        }
                                     }
                                     else
-                                    {
-                                        Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
+                                    {// Se a conversão não for bem-sucedida, exibe uma mensagem mostrando que a entrada é inválida
+                                        Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+                                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                        Console.ReadKey();
                                     }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
-                                }
-                                break;
-                            default:
+                                    break;
+                            default:// Se a conversão não for bem-sucedida, exibe uma mensagem informando que a entrada é inválida.
                                 Console.WriteLine("Opção inválida. Escolha o número 1 ou 2.");
+                                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                Console.ReadKey();
                                 break;
                         }
                     }
                     else
                     {
                         Console.WriteLine("Opção inválida. Escolha o número 1 ou 2.");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     Console.Clear();
                 } while (!sair);

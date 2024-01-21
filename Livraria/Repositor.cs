@@ -36,6 +36,8 @@ class Repositor
                         if (String.IsNullOrEmpty(titulo) || String.IsNullOrEmpty(autor) || String.IsNullOrEmpty(genero))// Verifica se os campos não estão vazios
                         {
                             Console.WriteLine("Valor inválido!");
+                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                            Console.ReadKey();
                         }
                         else
                         {
@@ -54,26 +56,36 @@ class Repositor
                             
                             Livro.livros.Add(novoLivro);// Adiciona o novo livro à lista de livros
                             Console.WriteLine("Livro registrado com sucesso!");
+                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                            Console.ReadKey();
                         }
                     }
                     else
                     {
                         Console.WriteLine("Valor inválido!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                 }
                 else
                 {
                     Console.WriteLine("Valor inválido!");
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
             }
             else
             {
                 Console.WriteLine("Valor inválido!");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Valor inválido!");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
     
@@ -89,15 +101,21 @@ class Repositor
             {
                 Livro.livros.Remove(livroParaRemover);// Remove o livro da lista
                 Console.WriteLine("Livro removido com sucesso: " + livroParaRemover.Titulo);
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Código inválido. Por favor, insira um código válido.");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
     
@@ -120,12 +138,16 @@ class Repositor
                 Console.WriteLine("Título: " + livro.Titulo + "\n Autor: " + livro.Autor + "\n Código: " + livro.Codigo + "\n");
                 Console.WriteLine("------------------------");
             }
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
         else
         {
             // Exibe mensagem que nenhum livro do gênero foi encontrado
             Console.Clear();
             Console.WriteLine("Nenhum livro encontrado do gênero " + generoDesejado + ".");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
     public static void AdicionarStock()// Método para adicionar stock a um livro
@@ -144,20 +166,28 @@ class Repositor
                 {
                     livroParaAdicionarStock.Stock += quantidade;// Adiciona a quantidade de stock ao livro
                     Console.WriteLine("Stock adicionado com sucesso. Novo stock:  " + livroParaAdicionarStock.Stock); 
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
                 else
                 {
                     Console.WriteLine("Código inválido. Por favor, insira um código válido.");
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
             }
             else
             {
                 Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
 
@@ -178,15 +208,21 @@ class Repositor
             if (livroStock != null)// Verifica se o livro foi encontrado
             {
                 Console.WriteLine("Há " + livroStock.Stock + " livros do " + livroStock.Titulo + " em stock");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Livro não encontrado.");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Código inválido!");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
 
@@ -207,7 +243,7 @@ class Repositor
             {
                 Console.WriteLine("Qual preço deseja colocar: ");
                 escolha = Console.ReadLine();
-                if (int.TryParse(escolha, out int preco))// Tenta converter o preço para um número inteiro
+                if (double.TryParse(escolha, out double preco))// Tenta converter o preço para um número inteiro
                 {
                     livroencontrado.Preco = preco;// Atualiza o preço do livro
                     Console.WriteLine("Preço atualizado com sucesso!");
@@ -226,12 +262,16 @@ class Repositor
                                     livroencontrado.IVA = 0.06;
                                     Console.WriteLine("IVA alterado com sucesso!");
                                     veri = false;
+                                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                    Console.ReadKey();
                                 }
                                 else if (iva == 23)// Alterar o iva para 23%
                                 {
                                     livroencontrado.IVA = 0.23;
                                     Console.WriteLine("IVA alterado com sucesso!");
                                     veri = false;
+                                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                                    Console.ReadKey();
                                 }
                                 else
                                 {
@@ -246,22 +286,29 @@ class Repositor
                     }
                     else
                     {
-                        Console.WriteLine("Escolha um opção válida!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                 }
                 else
                 {
                     Console.WriteLine("Preço inválido!");
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
             }
             else
             {
                 Console.WriteLine("Livro não encontrado.");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Código inválido!");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
 
@@ -284,11 +331,15 @@ class Repositor
                 Console.WriteLine("Título: " + livro.Titulo + "\n Género: " + livro.Genero + "\n Código: " + livro.Codigo + "\n");
                 Console.WriteLine("------------------------");
             }
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
         else
         {
             Console.Clear();
             Console.WriteLine("Nenhum livro encontrado do autor " + autorDesejado + ".");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }

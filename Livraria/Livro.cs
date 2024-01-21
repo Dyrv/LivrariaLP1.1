@@ -63,6 +63,7 @@ class Livro
             Console.WriteLine("IVA: " + livro.IVA);
             Console.WriteLine("Stock: " + livro.Stock);
         }
+        Console.WriteLine("\nClique em qualquer tecla para continuar...");
         Console.ReadKey();
     }
     
@@ -80,15 +81,21 @@ class Livro
             if (livroEncontrado != null)//Se o livro for encontrado imprime Livro encontrado e o Titulo
             {
                 Console.WriteLine("\nLivro encontrado: " + livroEncontrado.Titulo + "\n");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("\nLivro com código " + codigoLivro + " não encontrado.\n");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
         else
         {
             Console.WriteLine("Valor inválido!");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }

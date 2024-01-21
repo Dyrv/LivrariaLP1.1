@@ -29,6 +29,8 @@ public class Caixa
                     {
                         veri = false;
                         Console.WriteLine("Venda cancelada!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -99,6 +101,8 @@ public class Caixa
                 Console.WriteLine("O desconto foi de " + Math.Round(desconto, 2));
                 Console.WriteLine("O valor do IVA foi de: " + Math.Round(total_iva, 2));
                 Console.WriteLine("O valor final foi de " + total);
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
@@ -106,6 +110,8 @@ public class Caixa
                 Console.WriteLine("Venda concluida!");
                 Console.WriteLine("O valor do IVA foi de: " + Math.Round(total_iva, 2));
                 Console.WriteLine("O valor final foi de " + total);
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
     }

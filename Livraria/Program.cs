@@ -62,7 +62,6 @@ class Program // Classe principal
             {
                 Console.WriteLine("Acesso permitido!");
                 Console.WriteLine("Clique em qualquer tecla para continuar...");
-                Console.WriteLine(cargo);
                 Console.ReadKey();
                 veri = false; // Não é necessário tentar novamente se a verificação for bem-sucedida
                 Menu_interface.menu();// Ir para o menu

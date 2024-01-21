@@ -39,10 +39,14 @@
                     if (String.IsNullOrEmpty(nome))
                     {
                         Console.WriteLine("Valor não inserido!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     else if (String.IsNullOrEmpty(senha))
                     {
                         Console.WriteLine("Valor não inserido!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -53,11 +57,16 @@
                             Senha = senha
                         };
                         Program.funcionarios.Add(novoFuncionario);
+                        Console.WriteLine("Funcionário adicionado com sucesso!");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                 }
                 else
                 {
                     Console.WriteLine("Valor inválido!");
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
         }
         //Funcao para remover funcionarios
@@ -73,12 +82,16 @@
             if (String.IsNullOrEmpty(nomeParaRemover))
             {
                 Console.WriteLine("Valor não inserido!");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
                 if (nomeParaRemover == Armazenamento.Nome)
                 {
                     Console.WriteLine("Não pode remover a si mesmo!");
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
                 else
                 {
@@ -90,11 +103,15 @@
                         foreach (var funcionario in Program.funcionarios)
                         {
                             Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
+                            Console.WriteLine("Clique em qualquer tecla para continuar...");
+                            Console.ReadKey();
                         }
                     }
                     else
                     {
                         Console.WriteLine("Elemento não encontrado");
+                        Console.WriteLine("Clique em qualquer tecla para continuar...");
+                        Console.ReadKey();
                     }
                 }
             }
@@ -107,10 +124,14 @@
             {
                 Console.WriteLine("Quantidade de livros vendidos: " + Caixa.qnt_livros);
                 Console.WriteLine("Lucro de vendas: " + Math.Round(Caixa.lucro, 2));
+                Console.WriteLine("\nClique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Nenhum livro vendido!");
+                Console.WriteLine("Clique em qualquer tecla para continuar...");
+                Console.ReadKey();
             }
         }
     }
