@@ -68,21 +68,21 @@ public class Menu_interface// Classe da interface do menu
                                             Console.WriteLine("Saindo...");
                                         }
                                         else if (opc_sair == 2)
-                                        {// Se a escolha for 2, também define 'sair' como verdadeira e chama o método Main() novamente.
+                                        {// Se a escolha for 2, também define 'sair' como verdadeira e volta para o método Main()
                                             sair = true;
                                             Program.Main();
                                         }
                                         else
-                                        {
+                                        {// Se a escolha não for 1 nem 2, mostra uma mensagem informando que a opção é inválida
                                             Console.WriteLine("Opção inválida. Escolha um número entre as opções dadas.");
                                         }
                                     }
                                     else
-                                    {
+                                    {// Se a conversão não for bem-sucedida, exibe uma mensagem mostrando que a entrada é inválida
                                         Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
                                     }
                                     break;
-                            default:
+                            default:// Se a conversão não for bem-sucedida, exibe uma mensagem informando que a entrada é inválida.
                                 Console.WriteLine("Opção inválida. Escolha um número entre 1 e 6.");
                                 break;
                         }

@@ -230,7 +230,7 @@ class Repositor
         }
     }
 
-    public static void ListarLivrosPorAutor()
+    public static void ListarLivrosPorAutor()// Método para listar os livros pelo autor
     {
         Console.Clear();
         Console.WriteLine("Digite o autor que deseja procurar:");// Solicita o autor que deseja procurar
