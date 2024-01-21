@@ -152,6 +152,7 @@ class Repositor
     }
     public static void AdicionarStock()// Método para adicionar stock a um livro
     {
+        Console.Clear();
         Console.WriteLine("Digite o código do livro para adicionar stock: ");
         if (int.TryParse(Console.ReadLine(), out int codigoLivro))// Converter o código para um número inteiro
         {

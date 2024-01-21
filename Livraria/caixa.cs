@@ -70,7 +70,7 @@ public class Caixa
                             }
                             else
                             {
-                                Console.WriteLine("O livro " + livroEncontrado.Titulo + " Nao esta em stock");
+                                Console.WriteLine("Valor inválido!");
                             }
                         }
                         else

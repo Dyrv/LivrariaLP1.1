@@ -104,15 +104,13 @@
                         {
                             Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
                         }
-                        Console.WriteLine("Clique em qualquer tecla para continuar...");
-                        Console.ReadKey();
                     }
                     else
                     {
                         Console.WriteLine("Elemento não encontrado");
-                        Console.WriteLine("Clique em qualquer tecla para continuar...");
-                        Console.ReadKey();
                     }
+                    Console.WriteLine("Clique em qualquer tecla para continuar...");
+                    Console.ReadKey();
                 }
             }
         }
