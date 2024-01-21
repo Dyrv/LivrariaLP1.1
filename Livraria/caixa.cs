@@ -9,6 +9,7 @@ public class Caixa
     public static int qnt, cont;
     public static bool veri;
     
+    //Funcao para vender livros
     public static void venderLivro()
     {
         cont = 1;
