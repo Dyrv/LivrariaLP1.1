@@ -1,5 +1,4 @@
-﻿namespace Livraria
-{
+﻿namespace Livraria;
     public class Gerente
     {
         private static string nome;
@@ -77,5 +76,19 @@
                 Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
             }
         }
+        public static void ver_receita()
+        {
+            Console.Clear();
+            if (Caixa.qnt_livros != 0)
+            {
+                Console.WriteLine("Quantidade de livros vendidos: " + Caixa.qnt_livros);
+                Console.WriteLine("Lucro de vendas: " + Caixa.lucro);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Nenhum livro vendido!");
+                Console.ReadKey();
+            }
+        }
     }
-}//

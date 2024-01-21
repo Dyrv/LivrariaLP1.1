@@ -123,4 +123,68 @@ class Repositor
             Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
         }
     }
+
+    public static void Verificar_Stock()
+    {
+        Console.Clear();
+        int cod;
+        Console.WriteLine("Insira o código: ");
+        cod = Convert.ToInt32(Console.ReadLine());
+        Livro livroStock = Livro.livros.Find(livro => livro.Codigo == cod);
+        if (livroStock != null)
+        {
+            Console.WriteLine("Há " + livroStock.Stock + " livros do "+ livroStock.Titulo + " em stock");
+        }
+        else
+        {
+            Console.WriteLine("Livro não encontrado.");
+        }
+    }
+
+    public static void Atualizar_preco_livros()
+    {
+        Console.Clear();
+        int cod;
+        Console.WriteLine("Insira o código: ");
+        cod = Convert.ToInt32(Console.ReadLine());
+        Livro livroencontrado = Livro.livros.Find(livro => livro.Codigo == cod);
+        if (livroencontrado != null)
+        {
+            Console.WriteLine("Qual preço deseja colocar: ");
+            double preco = Convert.ToDouble(Console.ReadLine());
+            livroencontrado.Preco = preco;
+            Console.WriteLine("Preço atualizado com sucesso!");
+            Console.WriteLine("Clique em qualquer tecla para continuar...");
+        }
+        else
+        {
+            Console.WriteLine("Livro não encontrado.");
+        }
+    }
+
+    public static void ListarLivrosPorAutor()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite o autor que deseja procurar:");
+        string autorDesejado = Console.ReadLine();
+
+        var livrosDoAutor = Livro.livros.Where(livro => livro.Autor.Equals(autorDesejado, StringComparison.OrdinalIgnoreCase)).ToList();
+
+        if (livrosDoAutor.Any())
+        {
+            Console.Clear();
+            Console.WriteLine("Livros do autor  " + autorDesejado + ":");
+            Console.WriteLine("------------------------");
+            foreach (var livro in livrosDoAutor)
+            {
+                Console.WriteLine("Título: " + livro.Titulo + "\n Género: " + livro.Genero + "\n Código: " + livro.Codigo + "\n");
+                Console.WriteLine("------------------------");
+            }
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Nenhum livro encontrado do gênero " + livrosDoAutor + ".");
+        }
+    }
 }

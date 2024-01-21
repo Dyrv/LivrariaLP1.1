@@ -75,11 +75,11 @@ class Livro
 
         if (livroEncontrado != null)
         {
-            Console.WriteLine($"Livro encontrado: {livroEncontrado.Titulo}");
+            Console.WriteLine("Livro encontrado: " + livroEncontrado.Titulo);
         }
         else
         {
-            Console.WriteLine($"Livro com código {codigoLivro} não encontrado.");
+            Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
         }
     }
 }
