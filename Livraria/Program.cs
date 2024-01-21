@@ -32,7 +32,8 @@ class Program
         {
             if (funcionarios[i].Nome == nome && funcionarios[i].Senha == senha)
             {
-                ArmazenamentoCargo.Cargo = funcionarios[i].Cargo;
+                Armazenamento.Cargo = funcionarios[i].Cargo;
+                Armazenamento.Nome = funcionarios[i].Nome;
                 return true;
             }
         }

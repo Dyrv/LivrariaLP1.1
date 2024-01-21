@@ -10,7 +10,7 @@ public class Menu_interface
         string escolha;
         Console.WriteLine("Bem-vindo ao menu!");
         Console.WriteLine("------------------");
-        switch (ArmazenamentoCargo.Cargo)
+        switch (Armazenamento.Cargo)
         {
             case "Gerente":
                 do
@@ -40,6 +40,7 @@ public class Menu_interface
                                 Gerente.remove_funcionario();
                                 break;
                             case 3:
+                                Console.Clear();
                                 foreach (var funcionario in Program.funcionarios)
                                 {
                                     Console.WriteLine("Nome: " + funcionario.Nome + " Cargo: " + funcionario.Cargo);
@@ -175,7 +176,7 @@ public class Menu_interface
                                 }
                                 break;
                             default:
-                                Console.WriteLine("Opção inválida. Escolha um número entre 1 e 8.");
+                                Console.WriteLine("Opção inválida. Escolha um número entre 1 e 10.");
                                 break;
                         }
                     }

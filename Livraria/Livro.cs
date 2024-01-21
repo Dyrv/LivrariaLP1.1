@@ -65,21 +65,29 @@ class Livro
         }
     }
     
-    public static void ConsultarLivroPorCodigo() // Rever - Alterar se for preciso
+    public static void ConsultarLivroPorCodigo()
     {
+        Console.Clear();
         int codigoLivro;
+        string escolha;
         Console.WriteLine("Qual é o código do livro que procura?");
-        codigoLivro = Convert.ToInt32(Console.ReadLine());
-        
-        Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);
-
-        if (livroEncontrado != null)
+        escolha = Console.ReadLine();
+        if (int.TryParse(escolha, out codigoLivro))
         {
-            Console.WriteLine("Livro encontrado: " + livroEncontrado.Titulo);
+            Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);
+
+            if (livroEncontrado != null)
+            {
+                Console.WriteLine("\nLivro encontrado: " + livroEncontrado.Titulo + "\n");
+            }
+            else
+            {
+                Console.WriteLine("\nLivro com código " + codigoLivro + " não encontrado.\n");
+            }
         }
         else
         {
-            Console.WriteLine("Livro com código " + codigoLivro + " não encontrado.");
+            Console.WriteLine("\nCódigo inválido!\n");
         }
     }
 }

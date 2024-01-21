@@ -8,24 +8,23 @@ class Repositor
         string titulo, autor, genero;
         int cod_livro, isbn, stock;
         double preco, iva;
-        
+        //if (String.IsNullOrEmpty(nome))
         Console.WriteLine("Qual é o nome do novo livro? \n");
         titulo = Console.ReadLine();
         Console.WriteLine("Qual é o autor do livro? \n");
         autor = Console.ReadLine();
         Console.WriteLine("Qual é o código do livro? \n");
-        cod_livro = Convert.ToInt32(Console.ReadLine());
+        cod_livro = Convert.ToInt32(Console.ReadLine());//
         Console.WriteLine("ISBN do livro? \n");
-        isbn = Convert.ToInt32(Console.ReadLine());
+        isbn = Convert.ToInt32(Console.ReadLine());//
         Console.WriteLine("Qual é o Género do livro? \n");
         genero = Console.ReadLine();
         Console.WriteLine("Qual é o Preço do livro? \n");
-        preco = Convert.ToDouble(Console.ReadLine());
+        preco = Convert.ToDouble(Console.ReadLine());//
         Console.WriteLine("Qual é o IVA do livro? \n");
-        iva = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Quantidade de stock? \n");
-        stock = Convert.ToInt32(Console.ReadLine());
-
+        iva = Convert.ToDouble(Console.ReadLine());//
+        stock = 0;
+        //if (String.IsNullOrEmpty(titulo) || String.IsNullOrEmpty(autor) || String.IsNullOrEmpty(genero)){}
         Livro novoLivro = new Livro
         {
             Titulo = titulo,
@@ -128,16 +127,24 @@ class Repositor
     {
         Console.Clear();
         int cod;
+        string escolha;
         Console.WriteLine("Insira o código: ");
-        cod = Convert.ToInt32(Console.ReadLine());
-        Livro livroStock = Livro.livros.Find(livro => livro.Codigo == cod);
-        if (livroStock != null)
+        escolha = Console.ReadLine();
+        if (int.TryParse(escolha, out cod))
         {
-            Console.WriteLine("Há " + livroStock.Stock + " livros do "+ livroStock.Titulo + " em stock");
+            Livro livroStock = Livro.livros.Find(livro => livro.Codigo == cod);
+            if (livroStock != null)
+            {
+                Console.WriteLine("Há " + livroStock.Stock + " livros do " + livroStock.Titulo + " em stock");
+            }
+            else
+            {
+                Console.WriteLine("Livro não encontrado.");
+            }
         }
         else
         {
-            Console.WriteLine("Livro não encontrado.");
+            Console.WriteLine("Código inválido!");
         }
     }
 
@@ -145,20 +152,34 @@ class Repositor
     {
         Console.Clear();
         int cod;
+        string escolha;
         Console.WriteLine("Insira o código: ");
-        cod = Convert.ToInt32(Console.ReadLine());
-        Livro livroencontrado = Livro.livros.Find(livro => livro.Codigo == cod);
-        if (livroencontrado != null)
+        escolha = Console.ReadLine();
+        if (int.TryParse(escolha, out cod))
         {
-            Console.WriteLine("Qual preço deseja colocar: ");
-            double preco = Convert.ToDouble(Console.ReadLine());
-            livroencontrado.Preco = preco;
-            Console.WriteLine("Preço atualizado com sucesso!");
-            Console.WriteLine("Clique em qualquer tecla para continuar...");
+            Livro livroencontrado = Livro.livros.Find(livro => livro.Codigo == cod);
+            if (livroencontrado != null)
+            {
+                Console.WriteLine("Qual preço deseja colocar: ");
+                escolha = Console.ReadLine();
+                if (int.TryParse(escolha, out int preco))
+                {
+                    livroencontrado.Preco = preco;
+                    Console.WriteLine("Preço atualizado com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Preço inválido!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Livro não encontrado.");
+            }
         }
         else
         {
-            Console.WriteLine("Livro não encontrado.");
+            Console.WriteLine("Código inválido!");
         }
     }
 
@@ -184,7 +205,7 @@ class Repositor
         else
         {
             Console.Clear();
-            Console.WriteLine("Nenhum livro encontrado do gênero " + livrosDoAutor + ".");
+            Console.WriteLine("Nenhum livro encontrado do autor " + autorDesejado + ".");
         }
     }
 }
