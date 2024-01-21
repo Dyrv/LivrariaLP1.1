@@ -46,15 +46,15 @@ public class Caixa
                             Console.WriteLine("Quantos quer vender: ");
                             if (int.TryParse(Console.ReadLine(), out qnt)) //Funcao que testa se o numero inserido de livros é um inteiro
                             {
-                                if (qnt <= livroEncontrado.Stock)
+                                if (qnt <= livroEncontrado.Stock)//Se a quantidade pedida para vender for menor ou igual á do stock do livro 
                                 {
-                                    qnt_livros += qnt;
-                                    livroEncontrado.Stock = livroEncontrado.Stock - qnt;
-                                    iva = livroEncontrado.IVA * livroEncontrado.Preco;
-                                    total = total + (livroEncontrado.Preco * qnt);
-                                    total_iva = total_iva + (iva * qnt);
+                                    qnt_livros += qnt;//adiciona a quantidade de livros a quantidade de livros vendidos
+                                    livroEncontrado.Stock = livroEncontrado.Stock - qnt;//Retira os livros que serão vendidos ao stock
+                                    iva = livroEncontrado.IVA * livroEncontrado.Preco;//Calcula o iva do preço do livro
+                                    total = total + (livroEncontrado.Preco * qnt);//Calcula o preço total da quantidade de livros pedida do mesmo
+                                    total_iva = total_iva + (iva * qnt);//Calcula o total do iva que está incluso nos livros
                                     Console.WriteLine("*" + qnt + " ," + livroEncontrado.Titulo + ", " +
-                                                      livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);
+                                                      livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);//Mostra o titulo o iva do livro e o preço
                                     cont++;
                                 }
                                 else if (qnt == 0)
@@ -76,7 +76,7 @@ public class Caixa
                             Console.WriteLine("Valor inválido!");
                         }
                     }
-                    else if (livroEncontrado == null)
+                    else if (livroEncontrado == null)//se o livro não existir imprimir não existe
                     {
                         Console.WriteLine("O livro não existe!");
                     }
