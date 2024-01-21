@@ -5,7 +5,7 @@ class Repositor
     public static void RegistrarLivro()
     {
         Console.Clear();
-        string titulo, autor, genero;
+        string titulo, autor, genero, escolha;
         int cod_livro, isbn, stock;
         double preco, iva;
         //if (String.IsNullOrEmpty(nome))
@@ -14,31 +14,64 @@ class Repositor
         Console.WriteLine("Qual é o autor do livro? \n");
         autor = Console.ReadLine();
         Console.WriteLine("Qual é o código do livro? \n");
-        cod_livro = Convert.ToInt32(Console.ReadLine());//
-        Console.WriteLine("ISBN do livro? \n");
-        isbn = Convert.ToInt32(Console.ReadLine());//
-        Console.WriteLine("Qual é o Género do livro? \n");
-        genero = Console.ReadLine();
-        Console.WriteLine("Qual é o Preço do livro? \n");
-        preco = Convert.ToDouble(Console.ReadLine());//
-        Console.WriteLine("Qual é o IVA do livro? \n");
-        iva = Convert.ToDouble(Console.ReadLine());//
-        stock = 0;
-        //if (String.IsNullOrEmpty(titulo) || String.IsNullOrEmpty(autor) || String.IsNullOrEmpty(genero)){}
-        Livro novoLivro = new Livro
+        escolha = Console.ReadLine();
+        if (int.TryParse(escolha, out cod_livro))
         {
-            Titulo = titulo,
-            Autor = autor,
-            Codigo = cod_livro,
-            ISBN = isbn,
-            Genero = genero,
-            Preco = preco,
-            IVA = iva,
-            Stock = stock
-        };
-
-        Livro.livros.Add(novoLivro);
-        Console.WriteLine("Livro registrado com sucesso!");
+            Console.WriteLine("ISBN do livro? \n");
+            escolha = Console.ReadLine();
+            if (int.TryParse(escolha, out isbn))
+            {
+                Console.WriteLine("Qual é o Género do livro? \n");
+                genero = Console.ReadLine();
+                Console.WriteLine("Qual é o Preço do livro? \n");
+                escolha = Console.ReadLine();
+                if (double.TryParse(escolha, out preco))
+                {
+                    Console.WriteLine("Qual é o IVA do livro? \n");
+                    escolha = Console.ReadLine();
+                    if (double.TryParse(escolha, out iva))
+                    {
+                        stock = 0;
+                        if (String.IsNullOrEmpty(titulo) || String.IsNullOrEmpty(autor) || String.IsNullOrEmpty(genero))
+                        {
+                            Console.WriteLine("Valor inválido!");
+                        }
+                        else
+                        {
+                            Livro novoLivro = new Livro
+                            {
+                                Titulo = titulo,
+                                Autor = autor,
+                                Codigo = cod_livro,
+                                ISBN = isbn,
+                                Genero = genero,
+                                Preco = preco,
+                                IVA = iva,
+                                Stock = stock
+                            };
+                            Livro.livros.Add(novoLivro);
+                            Console.WriteLine("Livro registrado com sucesso!");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Valor inválido!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Valor inválido!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Valor inválido!");
+        }
     }
     
     public static void RemoverLivro()

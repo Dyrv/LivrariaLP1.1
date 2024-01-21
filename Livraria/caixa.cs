@@ -19,7 +19,7 @@ public class Caixa
         do
         {
             Console.WriteLine("Insira o código do livro: (Caso não queira inserir mais nenhum, insira 0)");
-            string escolha = Console.ReadLine(); /* */
+            string escolha = Console.ReadLine();
             if (int.TryParse(escolha, out codigoLivro))
             {
                 if (codigoLivro == 0)
@@ -43,30 +43,36 @@ public class Caixa
                         if (livroEncontrado.Stock != 0)
                         {
                             Console.WriteLine("Quantos quer vender: ");
-                            qnt = Convert.ToInt32(Console.ReadLine());
-                            if (qnt <= livroEncontrado.Stock)
+                            if (int.TryParse(Console.ReadLine(), out qnt))
                             {
-                                qnt_livros += qnt;
-                                livroEncontrado.Stock = livroEncontrado.Stock - qnt;
-                                iva = livroEncontrado.IVA * livroEncontrado.Preco;
-                                total = total + (livroEncontrado.Preco * qnt);
-                                total_iva = total_iva + (iva * qnt);
-                                Console.WriteLine("*" + qnt + " ," + livroEncontrado.Titulo + ", " +
-                                                  livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);
-                                cont++;
-                            }
-                            else if (qnt == 0)
-                            {
-                                Console.WriteLine("A quantidade tem que ser maior que 0");
+                                if (qnt <= livroEncontrado.Stock)
+                                {
+                                    qnt_livros += qnt;
+                                    livroEncontrado.Stock = livroEncontrado.Stock - qnt;
+                                    iva = livroEncontrado.IVA * livroEncontrado.Preco;
+                                    total = total + (livroEncontrado.Preco * qnt);
+                                    total_iva = total_iva + (iva * qnt);
+                                    Console.WriteLine("*" + qnt + " ," + livroEncontrado.Titulo + ", " +
+                                                      livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);
+                                    cont++;
+                                }
+                                else if (qnt == 0)
+                                {
+                                    Console.WriteLine("A quantidade tem que ser maior que 0");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Não existe stock o sufciente!");
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("Não existe stock o sufciente!");
+                                Console.WriteLine("O livro " + livroEncontrado.Titulo + " Nao esta em stock");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("O livro " + livroEncontrado.Titulo + " Nao esta em stock");
+                            Console.WriteLine("Valor inválido!");
                         }
                     }
                     else if (livroEncontrado == null)

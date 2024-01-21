@@ -85,10 +85,8 @@ public class Menu_interface
                     }
                     else
                     {
-                        Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+                        Console.WriteLine("Opção inválida. Escolha um número entre 1 e 6.");
                     }
-                    Console.WriteLine("Pressione qualquer tecla para continuar...");
-                    Console.ReadKey();
                     Console.Clear();
                 } while (!sair);
 
@@ -182,10 +180,8 @@ public class Menu_interface
                     }
                     else
                     {
-                        Console.WriteLine("Opção inválida. Escolha um número entre 1 e 4.");
+                        Console.WriteLine("Opção inválida. Escolha um número entre 1 e 10.");
                     }
-                    Console.WriteLine("Pressione qualquer tecla para continuar...");
-                    Console.ReadKey();
                     Console.Clear();
                 } while (!sair);
                 break;
@@ -232,7 +228,7 @@ public class Menu_interface
                                 }
                                 break;
                             default:
-                                Console.WriteLine("Opção inválida. Escolha um número entre 1 e 4.");
+                                Console.WriteLine("Opção inválida. Escolha o número 1 ou 2.");
                                 break;
                         }
                     }
@@ -240,8 +236,6 @@ public class Menu_interface
                     {
                         Console.WriteLine("Opção inválida. Escolha o número 1 ou 2.");
                     }
-                    Console.WriteLine("Pressione qualquer tecla para continuar...");
-                    Console.ReadKey();
                     Console.Clear();
                 } while (!sair);
                 break;

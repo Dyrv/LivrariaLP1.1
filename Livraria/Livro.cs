@@ -87,7 +87,7 @@ class Livro
         }
         else
         {
-            Console.WriteLine("\nCódigo inválido!\n");
+            Console.WriteLine("Valor inválido!");
         }
     }
 }
