@@ -60,6 +60,7 @@
                     Console.WriteLine("Valor inválido!");
                 }
         }
+        //Funcao para remover funcionarios
         public static void remove_funcionario()
         {
             Console.Clear();
@@ -98,6 +99,7 @@
                 }
             }
         }
+        //Funcao para ver a receita e quantidade de livros vendidos
         public static void ver_receita()
         {
             Console.Clear();
