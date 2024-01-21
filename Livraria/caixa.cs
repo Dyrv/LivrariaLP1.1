@@ -9,23 +9,23 @@ public class Caixa
     public static int qnt, cont;
     public static bool veri;
     
-    //Funcao para vender livros
-    public static void venderLivro()
+    
+    public static void venderLivro() //Funcao para vender livros
     {
-        cont = 1;
+        cont = 0;
         total = 0;
         total_iva = 0;
         veri = true;
         Console.Clear();
-        do
+        do //Estrutura ciclica de verificação/conclusão de venda
         {
             Console.WriteLine("Insira o código do livro: (Caso não queira inserir mais nenhum, insira 0)");
             string escolha = Console.ReadLine();
-            if (int.TryParse(escolha, out codigoLivro))
+            if (int.TryParse(escolha, out codigoLivro))// Verifica se o código é um número inteiro válido
             {
                 if (codigoLivro == 0)
                 {
-                    if (cont == 1)
+                    if (cont == 0)
                     {
                         veri = false;
                         Console.WriteLine("Venda cancelada!");
@@ -37,14 +37,14 @@ public class Caixa
                 }
                 if (codigoLivro != 0)
                 {
-                    Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);
+                    Livro livroEncontrado = Livro.livros.Find(livro => livro.Codigo == codigoLivro);//Funcao que procura o livro pelo codigo na lista de livros
 
                     if (livroEncontrado != null)
                     {
                         if (livroEncontrado.Stock != 0)
                         {
                             Console.WriteLine("Quantos quer vender: ");
-                            if (int.TryParse(Console.ReadLine(), out qnt))
+                            if (int.TryParse(Console.ReadLine(), out qnt)) //Funcao que testa se o numero inserido de livros é um inteiro
                             {
                                 if (qnt <= livroEncontrado.Stock)
                                 {
@@ -88,7 +88,7 @@ public class Caixa
             }
         } while (veri);
 
-        if (cont > 1)
+        if (cont > 0)
         {
             if (total >= 50)
             {
