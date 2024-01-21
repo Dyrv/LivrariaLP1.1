@@ -97,7 +97,7 @@ public class Menu_interface// Classe da interface do menu
                 break;
             case "Repositor":
                 do
-                {
+                {// Opções para o Repositor
                     Console.WriteLine("1. Adicionar livro");
                     Console.WriteLine("------------------------");
                     Console.WriteLine("2. Remover livro");
@@ -125,33 +125,33 @@ public class Menu_interface// Classe da interface do menu
                         switch (opc)
                         {
                             case 1:
-                                Repositor.RegistrarLivro();
+                                Repositor.RegistrarLivro();//Chamar o método de registrar livro
                                 break;
                             case 2:
-                                Repositor.RemoverLivro();
+                                Repositor.RemoverLivro();//Chamar o método de remover livro
                                 break;
                             case 3:
-                                Livro.ListarLivro();
+                                Livro.ListarLivro();//Chamar o método de listar livro
                                 break;
                             case 4:
-                                Livro.ConsultarLivroPorCodigo();
+                                Livro.ConsultarLivroPorCodigo();//Chamar o método de listar livro pelo codigo
                                 break;
                             case 5:
-                                Repositor.ListarLivrosPorGenero();
+                                Repositor.ListarLivrosPorGenero();//Chamar o método de listar livro pelo genero
                                 break;
                             case 6:
-                                Repositor.ListarLivrosPorAutor();
+                                Repositor.ListarLivrosPorAutor();//Chamar o método de listar livro pelo autor
                                 break;
                             case 7:
-                                Repositor.AdicionarStock();
+                                Repositor.AdicionarStock();//Chamar o método para comprar livros
                                 break;
                             case 8:
-                                Repositor.Verificar_Stock();
+                                Repositor.Verificar_Stock();//Chamar o método de mostrar o stock de um livro
                                 break;
                             case 9:
-                                Repositor.Atualizar_preco_livros();
+                                Repositor.Atualizar_preco_livros();//Chamar o método de mudar o preço dos livros
                                 break;
-                            case 10:
+                            case 10:// Opções para sair do programa ou fazer login(mesmo do case 'gerente')
                                 Console.Clear();
                                 Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");
                                 escolha = Console.ReadLine();
@@ -191,7 +191,7 @@ public class Menu_interface// Classe da interface do menu
                 break;
             case "Caixa": 
                 do
-                {
+                {// Opções para o Repositor
                     Console.WriteLine("1. Vender");
                     Console.WriteLine("------------------------");
                     Console.WriteLine("2. Sair");
@@ -203,9 +203,9 @@ public class Menu_interface// Classe da interface do menu
                         switch (opc)
                         {
                             case 1:
-                                Caixa.venderLivro();
+                                Caixa.venderLivro();//Chamar o método de vender livro
                                 break;
-                            case 2:
+                            case 2:// Opções para sair do programa ou fazer login (mesmo do case 'Gerente')
                                 Console.Clear();
                                 Console.WriteLine("Deseja fechar o pograma ou fazer login? (1 - Sair / 2 - Login)");
                                 escolha = Console.ReadLine();
