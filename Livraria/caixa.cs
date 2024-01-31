@@ -55,8 +55,7 @@ public class Caixa
                                     iva = livroEncontrado.IVA * livroEncontrado.Preco;//Calcula o iva do preço do livro
                                     total = total + (livroEncontrado.Preco * qnt);//Calcula o preço total da quantidade de livros pedida do mesmo
                                     total_iva = total_iva + (iva * qnt);//Calcula o total do iva que está incluso nos livros
-                                    Console.WriteLine("*" + qnt + " ," + livroEncontrado.Titulo + ", " +
-                                                      livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);//Mostra o titulo o iva do livro e o preço
+                                    Console.WriteLine("*" + qnt + " ," + livroEncontrado.Titulo + ", " + livroEncontrado.IVA * 100 + "%, " + livroEncontrado.Preco);//Mostra o titulo o iva do livro e o preço
                                     cont++;
                                 }
                                 else if (qnt == 0)
